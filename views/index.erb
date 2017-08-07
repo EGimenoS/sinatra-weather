@@ -5,8 +5,31 @@
   <link rel="stylesheet" type="text/css" href="/style.css">
 </head>
 <body>
-  <h2>El tiempo en Valencia</h2>
-  <h1><%= @temp %>&deg;</h1>
+  <main>
+    <h2>El tiempo en <%= @city %></h2>
+    <h1><%= @temp %>&deg;</h1>
+    <div>
+      <% @icons.each do |icon| %>
+        <img src="<%= icon %>" alt="weather icon"/>
+      <%end%>
+    </div>
+  </main>
+  <footer>
+      <ul>
+        <% @cities.each do |city| %>
+          <li><a href="/?city=<%=URI.escape(city) %>"><%= city %></a></li>
+        <%end%>
+      </ul>
+       <p>
+          Built by 
+            <a href="http://github.com/EGimenoS">Ernesto Gimeno</a>
+          Icons by 
+            <a href="flaticon.com">flaticon</a>
+      </p>
+  </footer>
+    
+  
+  
 </body>
 </html>
 
